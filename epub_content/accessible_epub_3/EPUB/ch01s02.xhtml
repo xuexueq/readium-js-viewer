@@ -5,7 +5,24 @@
 		<title>Accessibility and Usability</title>
 		<link rel="stylesheet" type="text/css" href="css/epub.css" />
 	</head>
+	<style>
+		body{font-size:84%;}
+		.dragbox{width:300px; padding-left:20px; float:left;}
+		.draglist{padding:10px; margin-bottom:5px; border:2px dashed #ccc; background-color:#eee; cursor:move;}
+		.draglist:hover{border-color:#cad5eb; background-color:#f0f3f9;}
+		.dragremind{padding-top:2em; clear:both;}
+	</style>
 	<body>
+		<div class="dragbox" id="draglistContainer">
+			<div class="draglist" draggable="true">1111111</div>
+			<div class="draglist" draggable="true">2222222</div>
+		    <div class="draglist" draggable="true">3333333</div>
+		    <div class="draglist" draggable="true">4444444</div>
+		    <div class="draglist" draggable="true">5555555</div>
+		    <div class="draglist" draggable="true">6666666</div>
+		</div>
+		<div class="dragremind"></div>
+		<div id='draglist' draggable="true">哈哈哈哈哈</div>
 		<section class="sect1" title="Accessibility and Usability">
 			<h2 class="title" id="_accessibility_and_usability">Accessibility and Usability</h2>
 			<p>The other subject that needs treatment is what is meant by <em>accessibility</em> and
@@ -95,4 +112,34 @@
 			<p>But it’s time to roll up our sleeves and get our hands dirty…</p>
 		</section>
 	</body>
+	<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js"/>
+	<script type="text/javascript">
+		var list = document.getElementById("draglistContainer");
+		var sortable = new Sortable(list, {
+			animation: 150,
+			group: "localStorage-example",
+			onChoose: function (e) {
+				console.log('onChoose',e)
+				// evt.oldIndex;  // element index within parent
+			},
+
+			// Element dragging started
+			onStart: function (e) {
+				console.log('onStart',e)
+				// evt.oldIndex;  // element index within parent
+			},
+			onEnd: function (e) {
+				// var itemEl = evt.item;  // dragged HTMLElement
+				// evt.to;    // target list
+				// evt.from;  // previous list
+				// evt.oldIndex;  // element's old index within old parent
+				// evt.newIndex;  // element's new index within new parent
+				console.log('onEnd', e)
+				console.log('sortable', sortable.toArray())
+				console.log('evt.to.textContent', e.to.outerText)
+				console.log('onEnd', e.to.outerText.replace(/(\t|\r|\n)/g,' ').trim().replace(/\s+/g,','))
+			}
+		})
+	</script>
 </html>
