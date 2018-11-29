@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+
+<head>
+    <title>NeHe-EPUB-02</title>
+    <meta charset="utf-8" />
+    <link type="text/css" href="../css/NeHe-EPUB.css" rel="stylesheet" />
+    <link type="text/css" href="../css/prism.css" rel="stylesheet" />
+    <link type="text/css" href="../css_xue/common.css" rel="stylesheet" />
+    <script src="../three-js/prism.js"></script>
+</head>
+
+<body>
+    <h2>习题拖拽</h2>
+    <div class="dragbox" id="draglistContainer">
+        <div class="draglist" draggable="true">1111111</div>
+        <div class="draglist" draggable="true">2222222</div>
+        <div class="draglist" draggable="true">3333333</div>
+        <div class="draglist" draggable="true">4444444</div>
+        <div class="draglist" draggable="true">5555555</div>
+        <div class="draglist" draggable="true">6666666</div>
+    </div>
+    <button id="button">确认</button>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js" />
+    <script type="text/javascript">
+    window.onload = function() {
+        let time = new Date().valueOf();
+        localStorage.setItem(`ch01s02.xhtml`, time);
+    }
+    var list = document.getElementById("draglistContainer");
+    var result;
+    var sortable = new Sortable(list, {
+        animation: 150,
+        group: "localStorage-example",
+        onChoose: function(e) {
+            console.log('onChoose', e)
+            // evt.oldIndex;  // element index within parent
+        },
+
+        // Element dragging started
+        onStart: function(e) {
+            console.log('onStart', e)
+            // evt.oldIndex;  // element index within parent
+        },
+        onEnd: function(e) {
+            // var itemEl = evt.item;  // dragged HTMLElement
+            // evt.to;    // target list
+            // evt.from;  // previous list
+            // evt.oldIndex;  // element's old index within old parent
+            // evt.newIndex;  // element's new index within new parent
+            // console.log('onEnd', e)
+            // console.log('sortable', sortable.toArray())
+            // console.log('evt.to.textContent', e.to.outerText)
+            console.log('onEnd', e.to.outerText.replace(/(\t|\r|\n)/g, ' ').trim().replace(/\s+/g, ','))
+            result = e.to.outerText.replace(/(\t|\r|\n)/g, ' ').trim().replace(/\s+/g, ',');
+        }
+    })
+    let button = document.getElementById('button');
+
+    button.addEventListener('click', () => {
+        let data = {
+            "verb": {
+                "id": "http://adlnet.gov/expapi/verbs/voided",
+                "display": {
+                    "en-US": "voided"
+                }
+            },
+            "actor": {
+                "objectType": "Agent",
+                "name": "xueqiaoling",
+                "mbox": "mailto:admin@example.adlnet.gov"
+            },
+            "object": {
+                "objectType": "StatementRef",
+                "id": "e05aa883-acaf-40ad-bf54-02c8ce485fb0"
+            }
+        }
+        if (result) {
+            ajax('PUT', 'http://www.visualcatch.org/visca/TCAPI/statements?statementId=44d08678-2e1e-41ab-b649-f50a045b4e6a', data);
+        }
+    })
+
+    function ajax(method, url, data) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("X-Experience-API-Version", "1.0.1");
+        xhr.setRequestHeader("Authorization", "Basic " + btoa("37452F6BECFF6C62C1F8:8E8F751B81056CD94163"));
+        xhr.send(JSON.stringify(data));
+        xhr.onreadystatechange = function() {
+            var DONE = 4; // readyState 4 代表已向服务器发送请求
+            var OK = 200; // status 200 代表服务器返回成功
+            if (xhr.readyState === DONE) {
+                if (xhr.status === OK) {
+                    console.log(xhr.responseText); // 这是返回的文本
+                } else {
+                    console.log("Error: " + xhr.status); // 在此次请求中发生的错误
+                }
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

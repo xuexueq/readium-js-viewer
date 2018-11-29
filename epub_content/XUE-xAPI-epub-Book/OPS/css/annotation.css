@@ -1,0 +1,78 @@
+.annotator-adder-actions__button {
+    box-shadow: none;
+    font-family: h;
+    font-size: 18px;
+    background: transparent !important;
+    color: #585858 !important;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: color 80ms;
+}
+
+.annotation {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+#annotation-mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#annotation-input {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    background-color: #333;
+    border-radius: 20px;
+    transition: right 0.3s linear;
+    text-align: center;
+}
+
+textarea {
+    border-radius: 10px;
+    font-size: 20px;
+    color: #333;
+    width: 97%;
+    margin-top: 5px;
+}
+
+textarea:focus {
+    outline: none;
+}
+#annotation-input .btn {
+    text-align: center;
+    margin-top: 10px;
+}
+#annotation-input button{
+    background-color: rgb(142, 0, 18);
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+
+#annotation-input button:last-child {
+    margin-left: 70px;
+}

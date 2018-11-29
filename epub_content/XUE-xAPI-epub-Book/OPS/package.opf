@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<package xmlns="http://www.idpf.org/2007/opf" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:dcterms="http://purl.org/dc/terms/" version="3.0" xml:lang="en"
+    unique-identifier="pub-identifier">
+    <metadata>
+
+        <dc:title id="pub-title">XUE-xAPI-epub</dc:title>
+        <dc:language id="pub-language">zh</dc:language>
+        <dc:date>2018-11-28</dc:date>
+        <meta property="dcterms:modified">2012-10-24T15:30:00Z</meta>
+        <dc:creator id="pub-creator12">Matt Garrish</dc:creator>
+        <dc:contributor>qiaoling009</dc:contributor>
+        <dc:publisher>XueQiaoling</dc:publisher>
+        <dc:rights>Copyright © 2018 XueQiaoling</dc:rights>
+    </metadata>
+    <manifest>
+        <item id="nav" href="toc.xhtml" properties="nav" media-type="application/xhtml+xml"/>
+        <item id="main" href="index.xhtml" media-type="application/xhtml+xml"/>
+        <item id="chapter1" href="chapter1.xhtml" media-type="application/xhtml+xml"/>
+    </manifest>
+    <spine>
+        <itemref idref="main"/>
+        <itemref idref="chapter1" linear="yes"/>
+    </spine>
+</package>

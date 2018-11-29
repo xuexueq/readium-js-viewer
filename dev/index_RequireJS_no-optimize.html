@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../src/css/viewer_audio.css">
     <link rel="stylesheet" type="text/css" href="../src/css/settings.css">
     <link rel="stylesheet" type="text/css" href="../src/css/library.css">
+    <link rel="stylesheet" href="../src/css/xue_index.css">
 
 
 
@@ -69,8 +70,39 @@ require(["readium_js_viewer/ReadiumViewer"], function(){});
     <body>
         <nav id="app-navbar" class="navbar" role="banner" aria-label="{{Strings.i18n_toolbar}}">
         </nav>
-        <div id="app-container">
+
+        <!-- 学习行为数据成功入库弹窗提示 -->
+        <!-- <div class="xue-modal">
+            
+        </div> -->
+
+        <!-- 注释栏 -->
+        <div class="anno-sidebar xue-hide">
+            <div class="label-side"></div>
+            <div class="content-container" id="xue-anno-content">
+                <div class="header"></div>
+
+                <div class="xue-item">
+                    <blockquote class="xue-annotation-quote">
+                        Testtttttttttttt
+                    </blockquote>
+                    <div>xueqlllllllll</div>
+                </div>
+
+                <div class="xue-item">
+                    <blockquote class="xue-annotation-quote">
+                        Test22222222222
+                    </blockquote>
+                    <div class="xue-anno-content">eeeeeeeeeee</div>
+                </div>
+                
+            </div>
         </div>
+
+        <div id="app-container">
+
+        </div>
+        <script src="../src/js/xue-anno-sidebar.js"></script>
     </body>
 
 </html>

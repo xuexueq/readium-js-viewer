@@ -8,6 +8,17 @@
 <link rel="start" href="epub_library.opds" type="application/atom+xml;profile=opds-catalog;kind=navigation"/>
 
 <entry>
+  <title>XUE xAPI epub Book</title>
+  <author>
+    <name>Matt Garrish</name>
+  </author>
+  <link type="image/jpeg" href="XUE-xAPI-epub-Book/OPS/Image/cover_xue.png" rel="http://opds-spec.org/image/thumbnail"/>
+  <link type="application/epub" href="XUE-xAPI-epub-Book" rel="http://opds-spec.org/acquisition"/>
+  <updated>2016-02-12T00:00:00Z</updated>
+  <id>READIUM_OPDS_0123456789_0</id>
+</entry>
+
+<entry>
   <title>Accessible EPUB 3</title>
   <author>
     <name>Matt Garrish</name>

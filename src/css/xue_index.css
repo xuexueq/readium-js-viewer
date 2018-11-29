@@ -1,0 +1,86 @@
+blockquote {
+    padding: 0;
+    margin: 0;
+}
+
+#app-container {
+    position: relative;
+}
+
+.anno-sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 428px;
+    background-color: #ECECEC;
+    opacity: 0.5;
+    height: 100%;
+    overflow-y: scroll;
+    z-index: 3;
+}
+
+.label-side {
+    width: 20px;
+    height: 152px;
+    background-color: gray;
+    position: absolute;
+}
+
+.content-container {
+    margin-left: 20px;
+    font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    line-height: 2;
+    color: black;
+}
+
+.header {
+    background-color: black;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.xue-item {
+    background-color: white;
+    height: 200px;
+    /**/
+    margin: 10px;
+    padding: 20px;
+}
+
+.xue-annotation-quote {
+    line-height: 23px;
+    font-weight: 400;
+    border-left: 5px solid #d3d3d3;
+    color: #A6A6A6;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    letter-spacing: 0.1px;
+    padding: 0 1em;
+    overflow-wrap: break-word;
+}
+
+.xue-hide {
+    transform: translateX(413px);
+}
+
+.xue-modal {
+    position: fixed;
+    right: 0;
+    top: 50px;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: green;
+    color: white;
+    animation: 5s xue-modal linear both;
+}
+
+@keyframes xue-modal {
+    0% {opacity: 0}
+    40% {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}

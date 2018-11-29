@@ -1,5 +1,12 @@
 [
     {
+        "title" : "XUE xAPI epub Book",
+        "author" : "Matt Garrish",
+        "coverHref" : "epub_content/XUE-xAPI-epub-Book/OPS/Image/cover_xue.png",
+        
+        "rootUrl" : "epub_content/XUE-xAPI-epub-Book"
+    },
+    {
         "title" : "Accessible EPUB 3",
         "author" : "Matt Garrish",
         "coverHref" : "epub_content/accessible_epub_3/EPUB/covers/9781449328030_lrg.jpg",
